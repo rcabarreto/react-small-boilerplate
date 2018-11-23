@@ -1,6 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
+import * as configureStore from './store/configureStore'
+
+const store = configureStore.configure();
 
 const App = () => {
   return (
@@ -8,5 +12,9 @@ const App = () => {
   )
 }
 
-
-ReactDOM.render(<App/>, document.getElementById('app'))
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>, 
+  document.getElementById('app')
+)
