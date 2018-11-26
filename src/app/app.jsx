@@ -7,6 +7,9 @@ import * as configureStore from './store/configureStore'
 const store = configureStore.configure();
 
 const App = () => {
+
+  console.log('chuchuzimm');
+  
   return (
     <h1>React/Redux with Parcel app boilerplate</h1>
   )

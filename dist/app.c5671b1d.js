@@ -26939,6 +26939,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var store = configureStore.configure();
 
 var App = function App() {
+  console.log('chuchuzimm');
   return _react.default.createElement("h1", null, "React/Redux with Parcel app boilerplate");
 };
 
@@ -26972,7 +26973,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36709" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36199" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
