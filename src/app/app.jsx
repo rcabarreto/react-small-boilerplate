@@ -1,23 +1,25 @@
-import React from 'react'
+/* global document */
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-
-import * as configureStore from './store/configureStore'
-
-const store = configureStore.configure();
 
 const App = () => {
+  const [count, setCount] = useState(0)
 
-  console.log('chuchuzimm');
-  
+  useEffect(() => {
+    document.title = `You clicked ${count} times`
+  })
+
   return (
-    <h1>React/Redux with Parcel app boilerplate</h1>
+    <div>
+      <p>You clicked {count} times using Hooks</p>
+      <button type="button" onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
   )
 }
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App/>
-  </Provider>, 
-  document.getElementById('app')
+  <App />,
+  document.getElementById('app'),
 )
