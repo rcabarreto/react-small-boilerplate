@@ -1,5 +1,6 @@
 {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "rules": {
         "indent": [
             "error",
@@ -17,6 +18,14 @@
             "warn",
             "never"
         ],
-        "react/jsx-one-expression-per-line": ["off"]
+        "react/jsx-one-expression-per-line": ["off"],
+        "jsx-a11y/label-has-for": ["error", {
+            "components": [],
+            "required": {
+              "every": ["id"]
+            },
+            "allowChildren": false
+        }],
+        "jsx-a11y/label-has-associated-control": ["off"]
     }
 }

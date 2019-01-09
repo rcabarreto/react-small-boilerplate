@@ -1,6 +1,12 @@
 /* global document */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import ReactDOM from 'react-dom'
+
+// import OtherComponent from './components/OtherComponent'
+import ErrorBoundary from './components/ErrorBoundary'
+
+const OtherComponent = React.lazy(() => import('./components/OtherComponent'))
+
 
 const App = () => {
   const [count, setCount] = useState(0)
@@ -10,12 +16,20 @@ const App = () => {
   })
 
   return (
-    <div>
-      <p>You clicked {count} times using Hooks</p>
-      <button type="button" onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
+
+    <ErrorBoundary>
+      <div>
+        <p>You clicked {count} times using Hooks</p>
+        <button type="button" onClick={() => setCount(count + 1)}>
+          Click me
+        </button>
+      </div>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+
+    </ErrorBoundary>
   )
 }
 
