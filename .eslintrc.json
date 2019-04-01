@@ -1,6 +1,13 @@
 {
     "extends": "airbnb",
     "parser": "babel-eslint",
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.dev.js"
+            }
+        }
+    },
     "rules": {
         "indent": [
             "error",
@@ -26,6 +33,7 @@
             },
             "allowChildren": false
         }],
-        "jsx-a11y/label-has-associated-control": ["off"]
+        "jsx-a11y/label-has-associated-control": ["off"],
+        "no-underscore-dangle": ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION__"] }]
     }
 }
